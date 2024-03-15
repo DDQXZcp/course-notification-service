@@ -1,15 +1,12 @@
-service:
-  name: notification-service
+service: notification-service
 
 plugins:
   - serverless-bundle
-  - serverless-pseudo-parameters
-
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs20.x
   memorySize: 256
-  region: eu-west-1
+  region: ap-southeast-2
   stage: ${opt:stage, 'dev'}
   iamRoleStatements:
     - ${file(iam/SendMailIAM.yml):SendMailIAM}
